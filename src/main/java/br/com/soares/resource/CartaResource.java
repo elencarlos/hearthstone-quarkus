@@ -1,7 +1,10 @@
 package br.com.soares.resource;
 
 import br.com.soares.entity.Carta;
+import br.com.soares.entity.Classe;
+import br.com.soares.entity.Tipo;
 import br.com.soares.repository.CartaRepository;
+import io.quarkus.panache.common.Parameters;
 import org.jboss.logging.Logger;
 
 import javax.enterprise.context.ApplicationScoped;
@@ -37,6 +40,15 @@ public class CartaResource {
             throw new WebApplicationException("A carta de id: " + id + "não existe", 404);
         }
         return carta;
+    }
+
+    @GET
+    @Path("find")
+    public List<Carta> find(@QueryParam("nome") String nome,
+                            @QueryParam("id") Long id,
+                            @QueryParam("classe") Classe classe,
+                            @QueryParam("tipo") Tipo tipo) {
+        return cartaRepository.findBySearch(id, nome, classe, tipo);
     }
 
     @POST

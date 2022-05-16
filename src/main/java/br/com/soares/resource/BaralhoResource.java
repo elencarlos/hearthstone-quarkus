@@ -1,6 +1,7 @@
 package br.com.soares.resource;
 
 import br.com.soares.entity.Baralho;
+import br.com.soares.entity.Classe;
 import br.com.soares.repository.BaralhoRepository;
 import org.jboss.logging.Logger;
 
@@ -11,6 +12,7 @@ import javax.validation.Valid;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import javax.ws.rs.core.Response.Status;
 import java.util.List;
 
 @Path("/baralho")
@@ -30,11 +32,20 @@ public class BaralhoResource {
     }
 
     @GET
+    @Path("find")
+    public List<Baralho> find(@QueryParam("nome") String nome,
+                              @QueryParam("id") Long id,
+                              @QueryParam("classe") Classe classe
+    ) {
+        return baralhoRepository.findBySearch(id, nome, classe);
+    }
+
+    @GET
     @Path("{id}")
     public Baralho getOneById(@PathParam("id") Long id) {
         Baralho baralho = baralhoRepository.findById(id);
         if (baralho == null) {
-            throw new WebApplicationException("A baralho de id: " + id + "não existe", 404);
+            throw new WebApplicationException("A baralho de id: " + id + "não existe", Status.NOT_FOUND);
         }
         return baralho;
     }
@@ -45,7 +56,9 @@ public class BaralhoResource {
         if (baralho.id != null) {
             throw new WebApplicationException("O id não pode ser enviado na requisição.", 422);
         }
-
+        if ((long) baralho.cartas.size() > 30) {
+            throw new WebApplicationException("O baralho não pode ter mais de 30 cartas.", Status.EXPECTATION_FAILED);
+        }
         baralhoRepository.persist(baralho);
         return Response.ok(baralho).status(201).build();
     }

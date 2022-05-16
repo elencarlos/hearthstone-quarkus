@@ -10,11 +10,11 @@
 #
 # Then, build the image with:
 #
-# docker build -f src/main/docker/Dockerfile.native-micro -t quarkus/heartstone .
+# docker build -f src/main/docker/Dockerfile.native-micro -t quarkus/hearthstone .
 #
 # Then run the container using:
 #
-# docker run -i --rm -p 8080:8080 quarkus/heartstone
+# docker run -i --rm -p 8080:8080 quarkus/hearthstone
 #
 ###
 FROM quay.io/quarkus/quarkus-micro-image:1.0
