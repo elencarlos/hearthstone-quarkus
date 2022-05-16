@@ -1,8 +1,8 @@
 package br.com.soares.entity;
 
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.Hibernate;
 import org.hibernate.validator.constraints.Range;
 
 import javax.persistence.Cacheable;
@@ -10,25 +10,25 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
+import java.util.Objects;
 
 @Entity
 @Cacheable
 @Getter
 @Setter
-@EqualsAndHashCode
 public class Carta {
     @Id
     @GeneratedValue
-    public Long id;
+    private Long id;
     @NotBlank
-    public String nome;
-    public String descricao;
+    private String nome;
+    private String descricao;
     @Range(min = 0, max = 10, message = "O Ataque só pode ser de 0 até 10")
-    public Integer ataque;
+    private Integer ataque;
     @Range(min = 0, max = 10, message = "A Defesa só pode ser de 0 até 10")
-    public Integer defesa;
-    public Tipo tipo;
-    public Classe classe;
+    private Integer defesa;
+    private Tipo tipo;
+    private Classe classe;
 
     public Carta() {
     }
@@ -43,5 +43,16 @@ public class Carta {
         this.classe = classe;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
+        Carta carta = (Carta) o;
+        return id != null && Objects.equals(id, carta.id);
+    }
 
+    @Override
+    public int hashCode() {
+        return getClass().hashCode();
+    }
 }

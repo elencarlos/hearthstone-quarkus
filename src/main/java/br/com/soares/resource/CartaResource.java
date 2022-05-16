@@ -54,7 +54,7 @@ public class CartaResource {
     @POST
     @Transactional
     public Response create(Carta carta) {
-        if (carta.id != null) {
+        if (carta.getId() != null) {
             throw new WebApplicationException("O id não pode ser enviado na requisição.", 422);
         }
 
@@ -66,7 +66,7 @@ public class CartaResource {
     @Path("{id}")
     @Transactional
     public Carta update(@PathParam("id") Long id, @Valid Carta carta) {
-        if (carta.nome == null) {
+        if (carta.getNome() == null) {
             throw new WebApplicationException("O nome da carta não foi enviado na requisição.", 422);
         }
 
@@ -76,12 +76,12 @@ public class CartaResource {
             throw new WebApplicationException("Carta com o id: " + id + " não existe.", 404);
         }
 
-        cartaToEdit.nome = carta.nome;
-        cartaToEdit.descricao = carta.descricao;
-        cartaToEdit.defesa = carta.defesa;
-        cartaToEdit.ataque = carta.ataque;
-        cartaToEdit.classe = carta.classe;
-        cartaToEdit.tipo = carta.tipo;
+        cartaToEdit.setNome(carta.getNome());
+        cartaToEdit.setDescricao(carta.getDescricao());
+        cartaToEdit.setDefesa(carta.getDefesa());
+        cartaToEdit.setAtaque(carta.getAtaque());
+        cartaToEdit.setClasse(carta.getClasse());
+        cartaToEdit.setTipo(carta.getTipo());
 
         return cartaToEdit;
     }

@@ -53,10 +53,10 @@ public class BaralhoResource {
     @POST
     @Transactional
     public Response create(Baralho baralho) {
-        if (baralho.id != null) {
+        if (baralho.getId() != null) {
             throw new WebApplicationException("O id não pode ser enviado na requisição.", 422);
         }
-        if ((long) baralho.cartas.size() > 30) {
+        if ((long) baralho.getCartas().size() > 30) {
             throw new WebApplicationException("O baralho não pode ter mais de 30 cartas.", Status.EXPECTATION_FAILED);
         }
         baralhoRepository.persist(baralho);
@@ -67,7 +67,7 @@ public class BaralhoResource {
     @Path("{id}")
     @Transactional
     public Baralho update(@PathParam("id") Long id, @Valid Baralho baralho) {
-        if (baralho.nome == null) {
+        if (baralho.getNome() == null) {
             throw new WebApplicationException("O nome da baralho não foi enviado na requisição.", 422);
         }
 
@@ -77,8 +77,8 @@ public class BaralhoResource {
             throw new WebApplicationException("Baralho com o id: " + id + " não existe.", 404);
         }
 
-        baralhoToEdit.nome = baralho.nome;
-        baralhoToEdit.cartas = baralho.cartas;
+        baralhoToEdit.setNome(baralho.getNome());
+        baralhoToEdit.setCartas(baralho.getCartas());
 
         baralhoRepository.persist(baralhoToEdit);
 

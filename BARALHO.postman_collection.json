@@ -1,0 +1,396 @@
+{
+	"info": {
+		"_postman_id": "30297399-0c13-4c01-84c8-5d37d12db26f",
+		"name": "BARALHO",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "CREATE CARTA",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nome\": \"carta1\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/carta",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"carta"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT CARTA",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 1,\n    \"nome\": \"carta1\",\n    \"ataque\": 3,\n    \"defesa\": 4,\n    \"tipo\": \"MAGIA\",\n    \"classe\": \"DRUIDA\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/carta/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"carta",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CREATE CARTA 2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nome\": \"carta2\",\n    \"ataque\": 4,\n    \"defesa\": 4,\n    \"tipo\": \"MAGIA\",\n    \"classe\": \"QUALQUER\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/carta",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"carta"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CREATE CARTA 3",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nome\": \"carta3\",\n    \"ataque\": 5,\n    \"defesa\": 7,\n    \"tipo\": \"CRIATURA\",\n    \"classe\": \"PALADINO\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/carta",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"carta"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CREATE CARTA 4",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nome\": \"carta4\",\n    \"ataque\": 8,\n    \"defesa\": 4,\n    \"tipo\": \"MAGIA\",\n    \"classe\": \"MAGO\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/carta",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"carta"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CREATE CARTA 5",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nome\": \"carta5\",\n    \"ataque\": 3,\n    \"defesa\": 7,\n    \"tipo\": \"CRIATURA\",\n    \"classe\": \"CACADOR\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/carta",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"carta"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CREATE CARTAS 6",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nome\": \"carta6\",\n    \"ataque\": 9,\n    \"defesa\": 7,\n    \"tipo\": \"CRIATURA\",\n    \"classe\": \"QUALQUER\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/carta",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"carta"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CREATE BARALHO",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nome\": \"baralho1\",\n    \"cartas\": [\n        {\"id\": 4},\n        {\"id\": 5}\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/baralho",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"baralho"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CREATE BARALHO 2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nome\": \"baralho2\",\n    \"cartas\": [\n        {\"id\": 3},\n        {\"id\": 4}\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/baralho",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"baralho"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "FIND CARTA BY",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/carta/find?classe=CACADOR",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"carta",
+						"find"
+					],
+					"query": [
+						{
+							"key": "classe",
+							"value": "CACADOR"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CARTA BY ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/carta/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"carta",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "LIST CARTAS",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/carta",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"carta"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "LIST BARALHOS",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/baralho",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"baralho"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "FIND BARALHOS",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/baralho/find?classe=PALADINO",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"baralho",
+						"find"
+					],
+					"query": [
+						{
+							"key": "classe",
+							"value": "PALADINO"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET BARALHO BY ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/baralho/7",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"baralho",
+						"7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE CARTAS",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/carta/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"carta",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

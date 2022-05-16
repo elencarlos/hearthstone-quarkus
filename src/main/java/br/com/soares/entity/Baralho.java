@@ -1,25 +1,25 @@
 package br.com.soares.entity;
 
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.Hibernate;
 
 import javax.persistence.*;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 @Entity
 @Cacheable
 @Getter
 @Setter
-@EqualsAndHashCode
 public class Baralho {
     @Id
     @GeneratedValue
-    public Long id;
-    public String nome;
+    private Long id;
+    private String nome;
     @ManyToMany
-    public Set<Carta> cartas = new HashSet<>();
+    private Set<Carta> cartas = new HashSet<>();
 
     public Baralho() {
     }
@@ -28,5 +28,18 @@ public class Baralho {
         this.id = id;
         this.nome = nome;
         this.cartas = cartas;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
+        Baralho baralho = (Baralho) o;
+        return id != null && Objects.equals(id, baralho.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return getClass().hashCode();
     }
 }
