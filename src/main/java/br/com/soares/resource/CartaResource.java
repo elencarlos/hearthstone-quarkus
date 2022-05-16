@@ -1,4 +1,4 @@
-package br.com.soares.resources;
+package br.com.soares.resource;
 
 import br.com.soares.entity.Carta;
 import br.com.soares.repository.CartaRepository;
@@ -19,10 +19,9 @@ import java.util.List;
 @Consumes(MediaType.APPLICATION_JSON)
 public class CartaResource {
 
+    private static final Logger LOGGER = Logger.getLogger(CartaResource.class.getName());
     @Inject
     CartaRepository cartaRepository;
-
-    private static final Logger LOGGER = Logger.getLogger(CartaResource.class.getName());
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
@@ -78,7 +77,7 @@ public class CartaResource {
     @DELETE
     @Path("{id}")
     @Transactional
-    public Response delete(Long id) {
+    public Response delete(@PathParam("id") Long id) {
         Carta carta = cartaRepository.findById(id);
         if (carta == null) {
             throw new WebApplicationException("Carta com o id: " + id + " não existe.", 404);
