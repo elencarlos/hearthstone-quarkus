@@ -1,5 +1,6 @@
 package br.com.soares.entity;
 
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -11,6 +12,7 @@ import java.util.Set;
 @Cacheable
 @Getter
 @Setter
+@EqualsAndHashCode
 public class Baralho {
     @Id
     @GeneratedValue

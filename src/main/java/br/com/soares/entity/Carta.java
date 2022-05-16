@@ -1,5 +1,6 @@
 package br.com.soares.entity;
 
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.validator.constraints.Range;
@@ -14,6 +15,7 @@ import javax.validation.constraints.NotBlank;
 @Cacheable
 @Getter
 @Setter
+@EqualsAndHashCode
 public class Carta {
     @Id
     @GeneratedValue
@@ -40,4 +42,6 @@ public class Carta {
         this.tipo = tipo;
         this.classe = classe;
     }
+
+
 }

@@ -67,6 +67,8 @@ public class BaralhoResource {
         baralhoToEdit.nome = baralho.nome;
         baralhoToEdit.cartas = baralho.cartas;
 
+        baralhoRepository.persist(baralhoToEdit);
+
         return baralhoToEdit;
     }
 
